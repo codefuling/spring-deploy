@@ -17,5 +17,5 @@ WORKDIR /app
 
 COPY --from=builder /app/build/libs/myspringapp-1.0.jar app.jar
 
-EXPOSE 10000jar
+EXPOSE 10000
 CMD ["java", "-jar", "-Dspring.profiles.active=prod", "app.jar"]
