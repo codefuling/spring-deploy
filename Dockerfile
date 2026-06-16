@@ -15,7 +15,7 @@ FROM eclipse-temurin:17-jre-alpine
 
 WORKDIR /app
 
-COPY --from=builder /app/build/libs/*.jar app.jar
+COPY --from=builder /app/build/libs/myspringapp-1.0.jar app.jar
 
-EXPOSE 10000
+EXPOSE 10000jar
 CMD ["java", "-jar", "-Dspring.profiles.active=prod", "app.jar"]
