@@ -1,4 +1,3 @@
-# 1단계: 빌드
 FROM eclipse-temurin:17-jdk-alpine AS builder
 
 WORKDIR /app
@@ -10,9 +9,8 @@ COPY settings.gradle .
 COPY src src
 
 RUN chmod +x ./gradlew
-RUN ./gradlew build -x test
+RUN ./gradlew build -x test --no-daemon -Dorg.gradle.jvmargs="-Xmx512m"
 
-# 2단계: 실행
 FROM eclipse-temurin:17-jre-alpine
 
 WORKDIR /app
